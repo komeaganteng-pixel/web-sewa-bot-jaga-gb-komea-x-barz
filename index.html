@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewa Bot Jaga Group WhatsApp - Layanan Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #25D366;
+            --secondary: #075E54;
+            --accent: #128C7E;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(7, 94, 84, 0.8), rgba(18, 140, 126, 0.8)), url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .premium {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+        
+        .permanent {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        .regular {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-header .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .pricing-body {
+            padding: 2rem;
+        }
+        
+        .pricing-body ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-body li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pricing-body li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .popular {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--danger);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(15deg);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fab fa-whatsapp"></i>
+                    <h1>BotJagaGroup</h1>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="#pricing">Paket Harga</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Layanan Sewa Bot Jaga Group WhatsApp</h2>
+            <p>Jaga group WhatsApp Anda tetap aman dari spam, link berbahaya, dan konten tidak diinginkan dengan bot kami yang handal dan berkualitas tinggi.</p>
+            <a href="#pricing" class="btn">Lihat Paket Harga</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fitur Unggulan Bot Kami</h2>
+                <p>Bot kami dilengkapi dengan berbagai fitur canggih untuk melindungi group WhatsApp Anda</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Keamanan Terjamin</h3>
+                    <p>Bot akan secara otomatis mendeteksi dan mencegah konten berbahaya, spam, serta anggota yang tidak diinginkan.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Otomatis 24/7</h3>
+                    <p>Bot aktif 24 jam nonstop menjaga group Anda tanpa perlu istirahat, bahkan saat Anda tidur.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comment-slash"></i>
+                    <h3>Blokir Konten Terlarang</h3>
+                    <p>Otomatis memblokir kata-kata kasar, link berbahaya, dan konten tidak pantas sesuai aturan group.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Manajemen Member</h3>
+                    <p>Membantu mengelola anggota group, menyambut member baru, dan memberikan peringatan otomatis.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Kustomisasi Mudah</h3>
+                    <p>Anda dapat menyesuaikan aturan dan fitur bot sesuai kebutuhan group Anda dengan mudah.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Dukungan Penuh</h3>
+                    <p>Tim support siap membantu Anda 24/7 jika mengalami kendala atau membutuhkan bantuan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Paket Harga Sewa Bot</h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Paket Premium -->
+                <div class="pricing-card">
+                    <div class="pricing-header premium">
+                        <h3>PREMIUM</h3>
+                        <div class="price">Rp 9K</div>
+                        <p>PERMANEN</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Akses Fitur Premium</li>
+                            <li><i class="fas fa-check"></i> Bot Aktif 24/7</li>
+                            <li><i class="fas fa-check"></i> Dukungan Penuh</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                            <li><i class="fas fa-check"></i> Kustomisasi Aturan</li>
+                        </ul>
+                        <a href="https://wa.me/62895359900809?text=Saya%20Mau%20Sewa%20Bot%20Dong%20Kak" class="btn" style="width: 100%; text-align: center;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <!-- Paket Permanent -->
+                <div class="pricing-card">
+                    <div class="popular">POPULER</div>
+                    <div class="pricing-header permanent">
+                        <h3>PERMANEN</h3>
+                        <div class="price">Rp 8K</div>
+                        <p>PERMANEN</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bot Aktif 24/7</li>
+                            <li><i class="fas fa-check"></i> Dukungan Penuh</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                            <li><i class="fas fa-times"></i> <span style="text-decoration: line-through;">Akses Fitur Premium</span></li>
+                            <li><i class="fas fa-check"></i> Kustomisasi Dasar</li>
+                        </ul>
+                        <a href="https://wa.me/62895359900809?text=Saya%20Mau%20Sewa%20Bot%20Dong%20Kak" class="btn" style="width: 100%; text-align: center;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <!-- Paket 6 Bulan -->
+                <div class="pricing-card">
+                    <div class="pricing-header regular">
+                        <h3>6 BULAN</h3>
+                        <div class="price">Rp 7K</div>
+                        <p>6 BULAN</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bot Aktif 24/7</li>
+                            <li><i class="fas fa-check"></i> Dukungan Penuh</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                            <li><i class="fas fa-check"></i> Kustomisasi Dasar</li>
+                            <li><i class="fas fa-check"></i> Masa Aktif 6 Bulan</li>
+                        </ul>
+                        <a href="https://wa.me/62895359900809?text=Saya%20Mau%20Sewa%20Bot%20Dong%20Kak" class="btn" style="width: 100%; text-align: center;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <!-- Paket 5 Bulan -->
+                <div class="pricing-card">
+                    <div class="pricing-header regular">
+                        <h3>5 BULAN</h3>
+                        <div class="price">Rp 6K</div>
+                        <p>5 BULAN</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bot Aktif 24/7</li>
+                            <li><i class="fas fa-check"></i> Dukungan Penuh</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                            <li><i class="fas fa-check"></i> Kustomisasi Dasar</li>
+                            <li><i class="fas fa-check"></i> Masa Aktif 5 Bulan</li>
+                        </ul>
+                        <a href="https://wa.me/62895359900809?text=Saya%20Mau%20Sewa%20Bot%20Dong%20Kak" class="btn" style="width: 100%; text-align: center;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <!-- Paket 4 Bulan -->
+                <div class="pricing-card">
+                    <div class="pricing-header regular">
+                        <h3>4 BULAN</h3>
+                        <div class="price">Rp 5K</div>
+                        <p>4 BULAN</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bot Aktif 24/7</li>
+                            <li><i class="fas fa-check"></i> Dukungan Dasar</li>
+                            <li><i class="fas fa-check"></i> Update Berkala</li>
+                            <li><i class="fas fa-check"></i> Kustomisasi Dasar</li>
+                            <li><i class="fas fa-check"></i> Masa Aktif 4 Bulan</li>
+                        </ul>
+                        <a href="https://wa.me/62895359900809?text=Saya%20Mau%20Sewa%20Bot%20Dong%20Kak" class="btn" style="width: 100%; text-align: center;">Pilih Paket</a>
